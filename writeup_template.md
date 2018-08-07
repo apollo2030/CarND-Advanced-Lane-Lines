@@ -19,13 +19,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image1]: ./output_images/undist_straight_lines2.jpg "Undistorted"
+[image2]: ./test_images/straight_lines2.jpg "Road Transformed"
+[image3]: ./output_images/binary_undist_straight_lines2.jpg "Binary Example"
+[image4]: ./output_images/warped_straight_lines2.jpg "Warp Example"
+[image5]: ./output_images/lines_sliding_window_straight_lines2.jpg "Fit Visual"
+[image6]: ./output_images/combined_straight_lines2.jpg "Output"
+[video1]: ./test_videos/project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -66,29 +66,16 @@ I used a combination of color and gradient thresholds to generate a binary image
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
-
-```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
-```
+Instead of selecting manually the 4 points for perspective transform, I used the camera information to get the perspective projection of a part of the road ahead of the vehicle.
 
 This resulted in the following source and destination points:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| 580, 458    | 227, 0    |      
+| 227, 686    | 227, 720  |
+| 1103, 680   | 1103, 720 |
+| 706, 458    | 1103, 0   |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
@@ -124,4 +111,4 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+First of all the entire pipeline is very slow, its not near the realtime performance (I guess with better hardware it might be the case),it takes more than 9 minutes to process a 50 seconds video. It can be probably improved by measuring the performance bottlenecks and revising all the matrix operations and scrap the ones that are redundant. Looking at the curvature radius results, I dont feel confident in them, the curvature radius of the left line is different from the right one - normally they should be the same.
