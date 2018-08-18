@@ -5,7 +5,7 @@ def measure_curvature_real(ploty, left_fit_cr, right_fit_cr):
     Calculates the curvature of polynomial functions in meters.
     '''
     # Define conversions in x and y from pixels space to meters
-    ym_per_pix = 30/720 # meters per pixel in y dimension
+    ym_per_pix = 15/720 # meters per pixel in y dimension
     xm_per_pix = 4/917 # meters per pixel in x dimension
      
     # Define y-value where we want radius of curvature
