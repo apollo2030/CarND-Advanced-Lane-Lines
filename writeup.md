@@ -98,7 +98,8 @@ I implemented this step in cell 17 in the notebook file  `P2.ipynb` in the funct
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's the result:
+Here's the result of the pipeline:
+
 [![Project video](https://img.youtube.com/vi/nEYsgVHE2hs/0.jpg)](https://www.youtube.com/watch?v=nEYsgVHE2hs)
 
 ---
