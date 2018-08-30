@@ -21,6 +21,7 @@ The goals / steps of this project are the following:
 [image6]: ./output_images/combined_straight_lines2.jpg "Output"
 [video1]: ./test_videos/project_video.mp4 "Video"
 
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -97,7 +98,8 @@ I implemented this step in cell 17 in the notebook file  `P2.ipynb` in the funct
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](test_videos/project_video.mp4)
+Here's the result:
+[![Project video](https://img.youtube.com/vi/nEYsgVHE2hs/0.jpg)](https://www.youtube.com/watch?v=nEYsgVHE2hs)
 
 ---
 
